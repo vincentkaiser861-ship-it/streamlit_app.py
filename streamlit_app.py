@@ -1,3 +1,14 @@
+import streamlit as st
+import streamlit.components.v1 as components
+
+st.set_page_config(
+    page_title="GlobalShield Tactical OS - Varsovie",
+    page_icon="🛡️",
+    layout="centered"
+)
+
+# Code HTML/JS complet encapsulé pour Streamlit avec suivi GPS en direct
+html_code = """
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -60,7 +71,6 @@
             }
         }
 
-        // Suivi GPS en direct (WatchPosition s'actualise dès que vous bougez)
         if (navigator.geolocation) {
             navigator.geolocation.watchPosition(
                 (pos) => {
@@ -85,3 +95,6 @@
 
 </body>
 </html>
+"""
+
+components.html(html_code, height=650, scrolling=True)
